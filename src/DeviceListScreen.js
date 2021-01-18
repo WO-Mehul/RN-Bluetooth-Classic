@@ -222,12 +222,12 @@ export default class DeviceListScreen extends React.Component {
       ? () => this.cancelDiscovery()
       : () => this.startDiscovery();
 
-      console.log('this.props.bluetoothEnabled----', this.props.bluetoothEnabled)
+    console.log('this.props.bluetoothEnabled----', this.props.bluetoothEnabled);
     return (
       <Container>
         <Header iosBarStyle="light-content">
           <Body>
-            <Title>Devices--</Title>
+            <Title>Devices</Title>
           </Body>
           {this.props.bluetoothEnabled ? (
             <Right>
@@ -235,9 +235,7 @@ export default class DeviceListScreen extends React.Component {
                 <Icon type="Ionicons" name="md-sync" />
               </Button>
             </Right>
-          ) : (
-            ''
-          )}
+          ) : null}
         </Header>
         {this.props.bluetoothEnabled ? (
           <>
@@ -262,9 +260,7 @@ export default class DeviceListScreen extends React.Component {
                   </Text>
                 </Button>
               </View>
-            ) : (
-              ''
-            )}
+            ) : null}
           </>
         ) : (
           <Content contentContainerStyle={styles.center}>
@@ -287,7 +283,7 @@ export default class DeviceListScreen extends React.Component {
  * @param {function} onLongPress
  */
 export const DeviceList = ({devices, onPress, onLongPress}) => {
-    console.log('devices', devices)
+  console.log('devices', devices);
   const renderItem = ({item}) => {
     return (
       <DeviceListItem
