@@ -58,6 +58,13 @@
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "BleDemo-tvOS";
 		};
+		FF194A5125B5AC71004B5CF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF194A4D25B5AC71004B5CF4 /* RNBluetoothClassic.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNBluetoothClassic;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +117,7 @@
 		FF1948EC25B56CC5004B5CF4 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
 		FF1948F225B574C8004B5CF4 /* BleDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = BleDemo.entitlements; path = BleDemo/BleDemo.entitlements; sourceTree = "<group>"; };
 		FF1948F325B574C9004B5CF4 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		FF194A4D25B5AC71004B5CF4 /* RNBluetoothClassic.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNBluetoothClassic.xcodeproj; path = "../node_modules/react-native-bluetooth-classic/ios/RNBluetoothClassic.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +248,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				FF194A4D25B5AC71004B5CF4 /* RNBluetoothClassic.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -267,6 +276,14 @@
 				00E356EE1AD99517003FC87E /* BleDemoTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* BleDemo-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* BleDemo-tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF194A4E25B5AC71004B5CF4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF194A5225B5AC71004B5CF4 /* libRNBluetoothClassic.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -367,7 +384,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = CS58P39NFK;
+						DevelopmentTeam = 6SPYNP2D37;
 						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -392,6 +409,12 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FF194A4E25B5AC71004B5CF4 /* Products */;
+					ProjectRef = FF194A4D25B5AC71004B5CF4 /* RNBluetoothClassic.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* BleDemo */,
@@ -401,6 +424,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FF194A5225B5AC71004B5CF4 /* libRNBluetoothClassic.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNBluetoothClassic.a;
+			remoteRef = FF194A5125B5AC71004B5CF4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00E356EC1AD99517003FC87E /* Resources */ = {
@@ -751,7 +784,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BleDemo/BleDemo.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CS58P39NFK;
+				DEVELOPMENT_TEAM = 6SPYNP2D37;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BleDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -761,7 +794,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.BleDemo1;
+				PRODUCT_BUNDLE_IDENTIFIER = "tools.predictive.aiot-toolkit";
 				PRODUCT_NAME = BleDemo;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -777,7 +810,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BleDemo/BleDemo.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CS58P39NFK;
+				DEVELOPMENT_TEAM = 6SPYNP2D37;
 				INFOPLIST_FILE = BleDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -786,7 +819,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.BleDemo1;
+				PRODUCT_BUNDLE_IDENTIFIER = "tools.predictive.aiot-toolkit";
 				PRODUCT_NAME = BleDemo;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

@@ -20,7 +20,10 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
+import {NativeModules, NativeEventEmitter} from 'react-native';
 
+const BleManagerModule = NativeModules.RNBluetoothClassic;
+const bleManagerEmitter = new NativeEventEmitter(BleManagerModule);
 /**
  * See https://reactnative.dev/docs/permissionsandroid for more information
  * on why this is required (dangerous permissions).
@@ -56,7 +59,7 @@ const requestAccessFineLocationPermission = async () => {
 export default class DeviceListScreen extends React.Component {
   constructor(props) {
     super(props);
-
+    console.log('bleManagerEmitter', bleManagerEmitter);
     this.state = {
       devices: [],
       accepting: false,
@@ -66,6 +69,67 @@ export default class DeviceListScreen extends React.Component {
 
   componentDidMount() {
     this.getBondedDevices();
+    console.log('***componentDidMount');
+    this.onBluetoothDisabled = bleManagerEmitter.addListener(
+      'onBluetoothDisabled',
+      (d) => {
+        console.log('***componentDidMount onBluetoothDisabled d', d);
+      },
+    );
+    console.log('bleManagerEmitter', bleManagerEmitter);
+    this.onStateChanged = bleManagerEmitter.addListener(
+      'onStateChanged',
+      (d) => {
+        console.log('***componentDidMount onStateChanged d', d);
+      },
+    );
+    console.log('this.onStateChanged ', this.onStateChanged);
+    this.onBluetoothEnabled = RNBluetoothClassic.onBluetoothEnabled((d) => {
+      console.log('***componentDidMount onBluetoothEnabled d', d);
+    });
+    this.onConnect = RNBluetoothClassic.onStateChanged((d) => {
+      console.log('***componentDidMount onStateChanged d', d);
+    });
+    this.onDiscovered = RNBluetoothClassic.onDeviceDiscovered((d) => {
+      console.log('***componentDidMount onDeviceDiscovered d', d);
+    });
+    this.onConnected = RNBluetoothClassic.onDeviceConnected((d) => {
+      console.log('***componentDidMount onDeviceConnected d', d);
+    });
+    this.refresh();
+  }
+
+  refresh() {
+    RNBluetoothClassic.getBondedDevices()
+      .then(
+        (de) => {
+          console.log('getBondedDevices de', de);
+        },
+        (error) => {
+          console.log('getBondedDevices error', error);
+        },
+      )
+      .catch((error) => {
+        console.log('getBondedDevices catch error', error);
+      });
+    RNBluetoothClassic.getConnectedDevices()
+      .then(
+        (de) => {
+          console.log('getConnectedDevices de', de);
+        },
+        (error) => {
+          console.log('getConnectedDevices error', error);
+        },
+      )
+      .catch((error) => {
+        console.log('getConnectedDevices catch error', error);
+      });
+    // RNBluetoothClassic.getConnectedDevice((de) => {
+    //   console.log('getBondedDevices de', de);
+    // });
+    // setTimeout(() => {
+    //   this.refresh();
+    // }, 2000);
   }
 
   componentWillUnmount() {
